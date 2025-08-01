@@ -1,52 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Code Kidz</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/blockly/blockly.min.js"></script>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🧱 Code Kidz</h1>
-  <button onclick="runCode()">▶️ Run</button>
-  <button onclick="saveWorkspace()">💾 Save</button>
-  <button onclick="loadWorkspace()">📂 Load</button>
-  <div id="blocklyDiv"></div>
+  <header>
+    <img src="logo.png" alt="Code Kidz Logo" class="logo" />
+    <h1>Code Kidz</h1>
+    <div class="toolbar">
+      <button id="runBtn">▶ Run</button>
+      <button id="saveBtn">💾 Save</button>
+      <button id="loadBtn">📁 Load</button>
+      <button id="modeBtn">🌓 Mode</button>
+    </div>
+  </header>
 
-  <img id="sprite" src="sprite.png" style="
-  position: absolute;
-  top: 200px;
-  left: 200px;
-  width: 100px;
-  height: 100px;
-  z-index: 10;
-">
-  
-  <xml id="toolbox" style="display: none">
-    <category name="Events" colour="#FFD500">
-      <block type="when_run_clicked"></block>
-    </category>
-    <category name="Logic" colour="%{BKY_LOGIC_HUE}">
-      <block type="controls_if"></block>
-      <block type="logic_compare"></block>
-    </category>
-    <category name="Loops" colour="%{BKY_LOOPS_HUE}">
-      <block type="controls_repeat_ext"></block>
-      <block type="controls_whileUntil"></block>
-    </category>
-    <category name="Math" colour="%{BKY_MATH_HUE}">
-      <block type="math_number"></block>
-      <block type="math_arithmetic"></block>
-    </category>
-    <category name="Text" colour="%{BKY_TEXTS_HUE}">
-      <block type="text"></block>
-      <block type="text_print"></block>
-    </category>
-     <category name="Sprites" colour="#FF8C00">
-  <block type="move_sprite"></block>
-</category>
-  </xml>
+  <main>
+    <div id="blocklyArea"></div>
+    <div id="blocklyDiv"></div>
+    <canvas id="stage" width="480" height="360"></canvas>
+  </main>
+
   <script src="blocks.js"></script>
-  <script src="script.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
