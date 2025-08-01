@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>Code Kidz</title>
-  <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>🧱 Code Kidz</h1>
-  <button onclick="saveProject()">💾 Save</button>
-  <button onclick="loadProject()">📂 Load</button>
   <button onclick="runCode()">▶️ Run</button>
-
-  <div id="blocklyDiv" style="height: 500px; width: 100%;"></div>
-
+  <button onclick="saveWorkspace()">💾 Save</button>
+  <button onclick="loadWorkspace()">📂 Load</button>
+  <div id="blocklyDiv"></div>
   <xml id="toolbox" style="display: none">
-  <category name="Events" colour="60">
-  <block type="when_run"></block>
-</category>
-<category name="Motion" colour="230">
-  <block type="move_steps"></block>
-  <block type="turn_right"></block>
-  <block type="turn_left"></block>
-</category>
-<category name="Looks" colour="160">
-  <block type="say_hello"></block>
-  <block type="say_message"></block>
-</category>
-<category name="Control" colour="120">
-  <block type="wait_seconds"></block>
-</category>
-<category name="Operators" colour="200">
-  <block type="add_numbers"></block>
-  <block type="equals_check"></block>
-</category>
+    <category name="Events" colour="#FFD500">
+      <block type="when_run_clicked"></block>
+    </category>
+    <category name="Logic" colour="%{BKY_LOGIC_HUE}">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+    </category>
+    <category name="Loops" colour="%{BKY_LOOPS_HUE}">
+      <block type="controls_repeat_ext"></block>
+      <block type="controls_whileUntil"></block>
+    </category>
+    <category name="Math" colour="%{BKY_MATH_HUE}">
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+    </category>
+    <category name="Text" colour="%{BKY_TEXTS_HUE}">
+      <block type="text"></block>
+      <block type="text_print"></block>
+    </category>
   </xml>
-
+  <script src="blocks.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
