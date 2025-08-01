@@ -16,8 +16,23 @@ Blockly.defineBlocksWithJsonArray([
   }
 ]);
 
+Blockly.defineBlocksWithJsonArray([
+  {
+    "type": "when_run",
+    "message0": "when run clicked",
+    "nextStatement": null,
+    "colour": 60,
+    "tooltip": "Starts the script when Run is clicked",
+    "hat": "true"
+  }
+]);
+
 Blockly.JavaScript['say_hello'] = function(block) {
   return 'console.log("Hello!");\n';
+};
+
+Blockly.JavaScript['when_run'] = function(block) {
+  return '';
 };
 
 // Save/Load
@@ -50,10 +65,22 @@ function loadProject() {
 
 function runCode() {
   try {
-    const code = Blockly.JavaScript.workspaceToCode(workspace);
-    console.log("Running Code:\n", code);
-    eval(code); // Execute the code
+    const topBlocks = workspace.getTopBlocks(true);
+    let code = '';
+
+    topBlocks.forEach(block => {
+      if (block.type === 'when_run') {
+        const nextBlock = block.getNextBlock();
+        if (nextBlock) {
+          code += Blockly.JavaScript.blockToCode(nextBlock);
+        }
+      }
+    });
+
+    console.log("Running:\n", code);
+    eval(code);
   } catch (error) {
-    alert("Error running your code:\n" + error.message);
+    alert("Error: " + error.message);
   }
 }
+
