@@ -47,3 +47,13 @@ function loadProject() {
   };
   input.click();
 }
+
+function runCode() {
+  try {
+    const code = Blockly.JavaScript.workspaceToCode(workspace);
+    console.log("Running Code:\n", code);
+    eval(code); // Execute the code
+  } catch (error) {
+    alert("Error running your code:\n" + error.message);
+  }
+}
