@@ -12,6 +12,16 @@
   <button onclick="saveWorkspace()">💾 Save</button>
   <button onclick="loadWorkspace()">📂 Load</button>
   <div id="blocklyDiv"></div>
+
+  <img id="sprite" src="sprite.png" style="
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  width: 100px;
+  height: 100px;
+  z-index: 10;
+">
+  
   <xml id="toolbox" style="display: none">
     <category name="Events" colour="#FFD500">
       <block type="when_run_clicked"></block>
